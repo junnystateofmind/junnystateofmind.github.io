@@ -9,9 +9,9 @@ import Header from "./components/header"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Minjun.dev - AI Developer Blog",
-  description: "AI 개발자 장민준의 기술 블로그",
-  generator: 'v0.dev'
+  title: "민준의 개발 블로그",
+  description: "AI 개발자 장민준의 기술 블로그 - AI, 머신러닝, 개발 이야기",
+  generator: 'Next.js'
 }
 
 export default function RootLayout({
@@ -29,7 +29,9 @@ export default function RootLayout({
           </main>
           <footer className="border-t mt-12">
             <div className="container flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6">
-              <p className="text-xs text-gray-500 dark:text-gray-400">© 2024 Minjun Jang. All rights reserved.</p>
+              <p className="text-xs text-gray-500 dark:text-gray-400">
+                © 2024 장민준. All rights reserved.
+              </p>
             </div>
           </footer>
         </ThemeProvider>

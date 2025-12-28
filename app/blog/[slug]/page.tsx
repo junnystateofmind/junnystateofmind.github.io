@@ -25,11 +25,11 @@ export default async function BlogPostPage({ params }: Props) {
   }
 
   return (
-    <article className="py-12 md:py-24 max-w-3xl mx-auto">
+    <article className="py-8 md:py-12 max-w-3xl mx-auto">
       <Link href="/">
-        <Button variant="ghost" className="mb-8">
+        <Button variant="ghost" className="mb-6">
           <ArrowLeft className="h-4 w-4 mr-2" />
-          블로그로 돌아가기
+          목록으로 돌아가기
         </Button>
       </Link>
 
@@ -38,7 +38,7 @@ export default async function BlogPostPage({ params }: Props) {
           <Calendar className="h-4 w-4" />
           <time dateTime={post.date}>{post.date}</time>
         </div>
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
           {post.title}
         </h1>
         {post.tags.length > 0 && (
