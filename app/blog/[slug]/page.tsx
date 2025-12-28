@@ -1,5 +1,3 @@
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
 import { getAllPostSlugs, getPostBySlug } from "@/lib/posts"
 import { ArrowLeft, Calendar } from "lucide-react"
 import Link from "next/link"
@@ -26,33 +24,37 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <article className="py-8 md:py-12 max-w-3xl mx-auto">
-      <Link href="/">
-        <Button variant="ghost" className="mb-6">
-          <ArrowLeft className="h-4 w-4 mr-2" />
-          목록으로 돌아가기
-        </Button>
+      <Link
+        href="/"
+        className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
+      >
+        <ArrowLeft className="h-4 w-4" />
+        목록으로 돌아가기
       </Link>
 
-      <header className="mb-8">
-        <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-4">
+      <header className="mb-10">
+        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
           <Calendar className="h-4 w-4" />
           <time dateTime={post.date}>{post.date}</time>
         </div>
-        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
+        <h1 className="text-3xl md:text-4xl font-bold mb-4">
           {post.title}
         </h1>
         {post.tags.length > 0 && (
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-1.5">
             {post.tags.map((tag) => (
-              <Badge key={tag} variant="secondary">
+              <span
+                key={tag}
+                className="notion-tag bg-secondary text-secondary-foreground"
+              >
                 {tag}
-              </Badge>
+              </span>
             ))}
           </div>
         )}
       </header>
 
-      <div className="prose prose-gray dark:prose-invert max-w-none">
+      <div className="prose prose-neutral dark:prose-invert max-w-none">
         <ReactMarkdown remarkPlugins={[remarkGfm]}>
           {post.content}
         </ReactMarkdown>
