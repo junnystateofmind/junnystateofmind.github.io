@@ -6,8 +6,8 @@ import type React from "react"
 import Header from "./components/header"
 
 export const metadata: Metadata = {
-  title: "민준의 개발 블로그",
-  description: "AI 개발자 장민준의 기술 블로그 - AI, 머신러닝, 개발 이야기",
+  title: "Junnystateofmind",
+  description: "AI Agent Developer 장민준의 기술 블로그",
 }
 
 export default function RootLayout({
