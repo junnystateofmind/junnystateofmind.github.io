@@ -1,68 +1,67 @@
-import { Badge } from "@/components/ui/badge"
 import { getAllPosts } from "@/lib/posts"
 import Link from "next/link"
-import { Calendar } from "lucide-react"
-import Sidebar from "./components/sidebar"
+
+function getReadingTime(content: string): number {
+  const wordsPerMinute = 200
+  const words = content.trim().split(/\s+/).length
+  return Math.ceil(words / wordsPerMinute)
+}
 
 export default function HomePage() {
   const posts = getAllPosts()
-  const allTags = Array.from(new Set(posts.flatMap((post) => post.tags)))
 
   return (
-    <div className="py-8 md:py-12">
-      <div className="flex flex-col lg:flex-row gap-10">
-        {/* 메인 컨텐츠 */}
-        <div className="flex-1 min-w-0">
-          <div className="mb-10">
-            <h1 className="text-3xl font-bold mb-2">블로그</h1>
-            <p className="text-muted-foreground">
-              AI, 개발, 그리고 기술에 대한 이야기를 나눕니다.
-            </p>
-          </div>
+    <div className="py-12 md:py-20 max-w-2xl mx-auto">
+      {/* 인트로 */}
+      <header className="mb-16">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">Blog</h1>
+        <p className="text-xl text-muted-foreground">
+          AI, 개발, 그리고 기술에 대한 생각을 기록합니다.
+        </p>
+      </header>
 
-          {posts.length === 0 ? (
-            <div className="notion-card p-8 text-center">
-              <p className="text-muted-foreground">
-                아직 작성된 글이 없습니다. 곧 새로운 글이 올라올 예정입니다!
-              </p>
-            </div>
-          ) : (
-            <div className="space-y-4">
-              {posts.map((post) => (
-                <Link key={post.slug} href={`/blog/${post.slug}`} className="block">
-                  <article className="notion-card p-5">
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
-                      <Calendar className="h-3.5 w-3.5" />
-                      <time dateTime={post.date}>{post.date}</time>
-                    </div>
-                    <h2 className="text-lg font-semibold mb-2 group-hover:text-primary">
-                      {post.title}
-                    </h2>
-                    <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
-                      {post.description}
-                    </p>
-                    {post.tags.length > 0 && (
-                      <div className="flex flex-wrap gap-1.5">
-                        {post.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="notion-tag bg-secondary text-secondary-foreground"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                  </article>
-                </Link>
-              ))}
-            </div>
-          )}
+      {/* 글 목록 */}
+      {posts.length === 0 ? (
+        <div className="py-12 text-center">
+          <p className="text-muted-foreground">
+            아직 작성된 글이 없습니다.
+          </p>
         </div>
+      ) : (
+        <div className="divide-y divide-border">
+          {posts.map((post) => (
+            <article key={post.slug} className="py-8">
+              <Link href={`/blog/${post.slug}`} className="group block">
+                <div className="flex items-center gap-3 text-sm text-muted-foreground mb-3">
+                  <span>장민준</span>
+                  <span>·</span>
+                  <time dateTime={post.date}>{post.date}</time>
+                  <span>·</span>
+                  <span>{getReadingTime(post.content)} min read</span>
+                </div>
 
-        {/* 사이드바 */}
-        <Sidebar posts={posts} allTags={allTags} />
-      </div>
+                <h2 className="text-2xl font-bold mb-2 group-hover:text-muted-foreground transition-colors">
+                  {post.title}
+                </h2>
+
+                <p className="text-muted-foreground mb-4 line-clamp-2">
+                  {post.description}
+                </p>
+
+                {post.tags.length > 0 && (
+                  <div className="flex flex-wrap gap-2">
+                    {post.tags.map((tag) => (
+                      <span key={tag} className="medium-tag">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </Link>
+            </article>
+          ))}
+        </div>
+      )}
     </div>
   )
 }
