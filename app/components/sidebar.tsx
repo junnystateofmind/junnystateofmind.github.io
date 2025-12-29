@@ -30,7 +30,7 @@ export default function Sidebar({ posts, allTags }: SidebarProps) {
           </div>
           <div className="min-w-0">
             <h3 className="font-semibold truncate">장민준</h3>
-            <p className="text-sm text-muted-foreground">AI Developer</p>
+            <p className="text-sm text-muted-foreground">AI Agent Developer</p>
           </div>
         </div>
         <Link

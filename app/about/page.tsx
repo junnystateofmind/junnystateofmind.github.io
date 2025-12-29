@@ -13,7 +13,7 @@ export default function AboutPage() {
           </div>
           <div className="text-center md:text-left">
             <h1 className="text-3xl font-bold mb-2">장민준</h1>
-            <p className="text-lg text-muted-foreground mb-3">AI/ML Engineer</p>
+            <p className="text-lg text-muted-foreground mb-3">AI Agent Developer</p>
             <div className="flex items-center justify-center md:justify-start gap-4 text-sm text-muted-foreground mb-4">
               <span className="flex items-center gap-1">
                 <MapPin className="h-4 w-4" />

@@ -13,7 +13,7 @@ export default function Header() {
       <div className="container flex h-14 items-center justify-between">
         <div className="flex items-center gap-8">
           <Link className="flex items-center" href="/">
-            <span className="font-bold text-lg">민준의 개발 블로그</span>
+            <span className="font-bold text-lg">Junnystateofmind</span>
           </Link>
           <nav className="hidden md:flex items-center gap-1">
             <Link
