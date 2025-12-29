@@ -122,25 +122,12 @@ export default function AboutPage() {
                 2025.04 ~ 재직 중
               </span>
             </div>
-            <p className="text-sm text-muted-foreground mb-3">AI 에이전트 플랫폼 및 Agentic PDF 분석 시스템 개발</p>
-            <ul className="text-sm space-y-2 text-muted-foreground">
-              <li className="flex gap-2">
-                <span className="text-foreground">•</span>
-                <span><strong className="text-foreground">Document Parser 엔진:</strong> Layout 탐지 및 OCR을 결합한 PDF 텍스트 추출 및 Markdown/HTML 변환 솔루션 최적화</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-foreground">•</span>
-                <span><strong className="text-foreground">Contextual Image Captioning:</strong> Local VLM 활용, 문서 내 이미지/테이블 캡셔닝을 통한 RAG 검색 품질 향상</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-foreground">•</span>
-                <span><strong className="text-foreground">Multi-Agent Workflow:</strong> LangGraph 기반 멀티 에이전트 시스템 구축 (요약, 분석, 출처 태깅)</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-foreground">•</span>
-                <span><strong className="text-foreground">추론 인프라 최적화:</strong> Triton Inference Server, vLLM, sglang 기반 온프레미스 서버 구축</span>
-              </li>
-            </ul>
+            <p className="text-sm text-muted-foreground mb-3">AI 에이전트 플랫폼 개발</p>
+            <div className="flex flex-wrap gap-1.5">
+              {["LangGraph", "RAG", "Document AI", "OCR", "vLLM", "Triton"].map((tech) => (
+                <span key={tech} className="notion-tag bg-secondary text-secondary-foreground">{tech}</span>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -163,11 +150,12 @@ export default function AboutPage() {
                 2025.01 ~ 2025.02
               </span>
             </div>
-            <p className="text-sm text-muted-foreground mb-3">스마트폰 기반 정신 건강 평가를 위한 On-device SLM 개발</p>
-            <ul className="text-sm space-y-1.5 text-muted-foreground">
-              <li>• Qwen2.5 3B, Llama 3.2 3B 모델 대상 QLoRA 기반 미세 조정 (PEFT)</li>
-              <li>• Qualcomm Snapdragon 8 Elite 환경 구동을 위한 SNPE 기반 모델 최적화</li>
-            </ul>
+            <p className="text-sm text-muted-foreground mb-3">On-device SLM 개발</p>
+            <div className="flex flex-wrap gap-1.5">
+              {["QLoRA", "PEFT", "Llama", "Qwen", "SNPE", "On-device AI"].map((tech) => (
+                <span key={tech} className="notion-tag bg-secondary text-secondary-foreground">{tech}</span>
+              ))}
+            </div>
           </div>
 
           {/* AVIKUS */}
@@ -181,11 +169,12 @@ export default function AboutPage() {
                 2024.06 ~ 2024.07
               </span>
             </div>
-            <p className="text-sm text-muted-foreground mb-3">자율운항 선박 인식 모델 성능 평가 및 데이터 엔지니어링</p>
-            <ul className="text-sm space-y-1.5 text-muted-foreground">
-              <li>• YOLOv5 기반 선박 예측 모델 벤치마크 및 객체 추적(Tracking) 복원 알고리즘 개발</li>
-              <li>• TensorRT 기반 Vision 모델 가속화 및 최적화</li>
-            </ul>
+            <p className="text-sm text-muted-foreground mb-3">자율운항 선박 인식 모델 개발</p>
+            <div className="flex flex-wrap gap-1.5">
+              {["YOLOv5", "Object Tracking", "TensorRT", "Computer Vision"].map((tech) => (
+                <span key={tech} className="notion-tag bg-secondary text-secondary-foreground">{tech}</span>
+              ))}
+            </div>
           </div>
         </div>
       </section>
